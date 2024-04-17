@@ -9,4 +9,9 @@ public class BuildManager : MonoBehaviour
 	{
 		instance = this;
 	}
+	public void BuildStructure(GameObject tile)
+	{
+		//TO-DO : Add building functionality
+		Debug.Log("Build to : " + tile.name);
+	}
 }

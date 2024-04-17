@@ -10,7 +10,7 @@ public class Tile : MonoBehaviour
 	}
 	private void OnMouseDown()
 	{
-		Debug.Log("on mouse down");
+		BuildManager.instance.BuildStructure(gameObject);
 	}
 	private void OnMouseEnter()
 	{
