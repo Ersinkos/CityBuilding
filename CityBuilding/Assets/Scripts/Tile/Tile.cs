@@ -14,6 +14,6 @@ public class Tile : MonoBehaviour
 	}
 	private void OnMouseEnter()
 	{
-
+		BuildingGhost.instance.SetGhostNewPosition(transform.position);
 	}
 }
