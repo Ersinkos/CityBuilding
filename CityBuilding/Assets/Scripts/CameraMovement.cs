@@ -7,38 +7,30 @@ public class CameraMovement : MonoBehaviour
 	private InputAction movement;
 	private Transform cameraTransform;
 
-	[SerializeField]
-	private float maxSpeed = 5f;
+
+	[SerializeField] private float maxSpeed = 5f;
 	private float speed;
-	[SerializeField]
-	private float acceleration = 10f;
-	[SerializeField]
-	private float damping = 15f;
 
+	[SerializeField] private float acceleration = 10f;
 
-	[SerializeField]
-	private float stepSize = 2f;
+	[SerializeField] private float damping = 15f;
 
-	[SerializeField]
-	private float zoomDampening = 7.5f;
+	[SerializeField] private float stepSize = 2f;
 
-	[SerializeField]
-	private float minHeight = 5f;
+	[SerializeField] private float zoomDampening = 7.5f;
 
-	[SerializeField]
-	private float maxHeight = 50f;
+	[SerializeField] private float minHeight = 5f;
 
-	[SerializeField]
-	private float zoomSpeed = 2f;
+	[SerializeField] private float maxHeight = 50f;
 
+	[SerializeField] private float zoomSpeed = 2f;
 
-	[SerializeField]
-	private float maxRotationSpeed = 1f;
+	[SerializeField] private float maxRotationSpeed = 1f;
 
 
 	[SerializeField]
 	[Range(0f, 0.1f)]
-	private float edgeTolerance = 0.05f;
+	private float edgeTolerance = 0f;
 
 	//value set in various functions 
 	//used to update the position of the camera base object.
