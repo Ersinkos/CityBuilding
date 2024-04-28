@@ -7,6 +7,5 @@ using UnityEngine.UI;
 public class FlexibleUISO : ScriptableObject
 {
 	public Sprite buttonSprite;
-	//public StructureTypeListSO structureTypeList;
-	//public SpaceshipPartListSO spaceshipPartList;
+	public StructureTypeListSO structureTypeList;
 }
