@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a17d6deb23a4194a9aa43051738ae45, type: 3}
+  m_Name: WaterTreatmentPlant
+  m_EditorClassIdentifier: 
+  nameString: WaterTreatmentPlant
+  prefab: {fileID: 1249549583879913045, guid: b252a8cf039a238438d3204e5e63307b, type: 3}
+  waterCost: 10
+  ironCost: 10
+  energyCost: 10
+  moneyCost: 10
