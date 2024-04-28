@@ -22,6 +22,8 @@ public class ResourceManager : MonoBehaviour
 		energy = GetResourceType(ResourceType.Energy).startingAmount;
 		money = GetResourceType(ResourceType.Money).startingAmount;
 		storageCapacity = GetResourceType(ResourceType.StorageCapacity).startingAmount;
+
+		UpdateResourceUI();
 	}
 	public int GetWater()
 	{
