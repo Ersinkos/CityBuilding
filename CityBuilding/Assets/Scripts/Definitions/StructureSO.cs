@@ -5,8 +5,10 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "ScriptableObjects/Structure")]
 public class StructureSO : ScriptableObject
 {
+	public int id;
 	public string nameString;
 	public string buttonName;
+	public string description;
 	public GameObject prefab;
 	public int waterCost;
 	public int ironCost;
