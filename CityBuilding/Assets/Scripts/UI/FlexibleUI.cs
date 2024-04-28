@@ -109,7 +109,7 @@ public class FlexibleUI : MonoBehaviour
 		filterString = "";
 		filterType = 0;
 		gameObject.SetActive(false);
-		//BuildManager.instance.CancelBuilding();
+		BuildManager.instance.CancelBuilding();
 		//BuildManager.instance.ModeIndicatorDeactivate();
 	}
 }

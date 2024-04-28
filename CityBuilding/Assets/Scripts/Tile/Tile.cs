@@ -15,5 +15,7 @@ public class Tile : MonoBehaviour
 	private void OnMouseEnter()
 	{
 		BuildingGhost.instance.SetGhostNewPosition(transform.position);
+		if (BuildingGhost.instance.HasBuildingGhost())
+			BuildingGhost.instance.BuildingGhostEnabled(true);
 	}
 }

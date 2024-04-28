@@ -36,8 +36,17 @@ public class BuildingGhost : MonoBehaviour
 			Awake();
 		}
 	}
+	public bool HasBuildingGhost()
+	{
+		return buildingGhost != null;
+	}
 	public void ResetBuildingGhostRotation()
 	{
 		transform.rotation = Quaternion.identity;
+	}
+	public void BuildingGhostEnabled(bool enabled)
+	{
+		if (HasBuildingGhost())
+			buildingGhost.SetActive(enabled);
 	}
 }

@@ -6,6 +6,7 @@ public class BuildManager : MonoBehaviour
 {
 	public static BuildManager instance { get; private set; }
 	private StructureSO activeStructure;
+	public bool buildMode;
 	private void Awake()
 	{
 		instance = this;
@@ -18,5 +19,16 @@ public class BuildManager : MonoBehaviour
 	public void SetActiveStructureType(StructureSO structure)
 	{
 		activeStructure = structure;
+	}
+	public void CancelBuilding()
+	{
+		BuildingGhost.instance.BuildingGhostEnabled(false);
+		BuildingGhost.instance.SetActiveStructureGhost(null);
+		SetActiveStructureType(null);
+		SetBuildMode(false);
+	}
+	public void SetBuildMode(bool enabled)
+	{
+		buildMode = enabled;
 	}
 }
