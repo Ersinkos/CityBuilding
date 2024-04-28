@@ -83,7 +83,7 @@ public class CameraMovement : MonoBehaviour
 	{
 		//inputs
 		GetKeyboardMovement();
-		CheckMouseAtScreenEdge();
+		//CheckMouseAtScreenEdge();
 		DragCamera();
 
 		//move base and camera objects
