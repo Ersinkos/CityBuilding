@@ -9,6 +9,7 @@ public class ResourceManager : MonoBehaviour
 	[SerializeField] private int iron;
 	[SerializeField] private int energy;
 	[SerializeField] private int money;
+	[SerializeField] private int storageCapacity;
 	public ResourceTypeListSO resourceList;
 	private void Awake()
 	{
@@ -64,5 +65,60 @@ public class ResourceManager : MonoBehaviour
 			}
 		}
 		return resourceList.list[0];
+	}
+
+	public void OnStructurePlacing(StructureSO structureType)
+	{
+		SpendMaterial(structureType);
+	}
+	private void SpendMaterial(StructureSO structureType)
+	{
+		water -= structureType.waterCost;
+		iron -= structureType.ironCost;
+		energy -= structureType.energyCost;
+		money -= structureType.moneyCost;
+	}
+	private void UpdateResourceUI()
+	{
+		GameCanvas.instance.ChangeWaterMaterialText(water.ToString());
+		GameCanvas.instance.ChangeIronMaterialText(iron.ToString());
+		GameCanvas.instance.ChangeEnergyMaterialText(energy.ToString());
+		GameCanvas.instance.ChangeMoneyMaterialText(money.ToString());
+
+		//if (lifeSupportMaterial > storageCapacity)
+		//{
+		//	lifeSupportMaterialText.color = exceedCapacity;
+		//}
+		//else
+		//{
+		//	lifeSupportMaterialText.color = normalColor;
+		//}
+		//if (buildingMaterial > storageCapacity)
+		//{
+		//	buildingMaterialText.color = exceedCapacity;
+		//}
+		//else
+		//{
+		//	buildingMaterialText.color = normalColor;
+		//}
+		//if (energyMaterial > storageCapacity)
+		//{
+		//	energyMaterialText.color = exceedCapacity;
+		//}
+		//else
+		//{
+		//	energyMaterialText.color = normalColor;
+		//}
+		//if (conductiveMaterial > storageCapacity)
+		//{
+		//	conductiveMaterialText.color = exceedCapacity;
+		//}
+		//else
+		//{
+		//	conductiveMaterialText.color = normalColor;
+		//}
+
+		if (FlexibleUI.instance != null)
+			FlexibleUI.instance.UpdateResourceRequirementIndicators();
 	}
 }

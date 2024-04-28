@@ -16,6 +16,7 @@ public class BuildManager : MonoBehaviour
 		//TO-DO : Add building functionality
 		Debug.Log("Build to : " + tile.name);
 		Instantiate(activeStructure.prefab, tile.transform.position, Quaternion.identity);
+		ResourceManager.instance.OnStructurePlacing(activeStructure);
 	}
 	public void SetActiveStructureType(StructureSO structure)
 	{

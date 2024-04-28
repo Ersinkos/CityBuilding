@@ -2059,6 +2059,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a668b79eee5ed84e88c2afb4f19ca23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waterMaterialText: {fileID: 850846009}
+  ironMaterialText: {fileID: 1067675860}
+  energyMaterialText: {fileID: 953809992}
+  moneyMaterialText: {fileID: 2098832700}
 --- !u!1 &1635767372
 GameObject:
   m_ObjectHideFlags: 0
