@@ -12,13 +12,13 @@ GameObject:
   - component: {fileID: 3293047771503356746}
   - component: {fileID: 745265241294217088}
   - component: {fileID: 3418967578031546520}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: WaterTreatmentPlantGhost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1881548161446995183
 Transform:
   m_ObjectHideFlags: 0
