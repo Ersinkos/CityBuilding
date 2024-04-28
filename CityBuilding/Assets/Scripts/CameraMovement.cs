@@ -1,9 +1,9 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class CameraMovement : MonoBehaviour
 {
-
 	private InputAction movement;
 	private Transform cameraTransform;
 
@@ -57,19 +57,26 @@ public class CameraMovement : MonoBehaviour
 
 		lastPosition = this.transform.position;
 
-		movement = InputManager.instance.GetPlayerInput().Camera.Movement;
-		InputManager.instance.GetPlayerInput().Camera.RotateCamera.performed += RotateCamera;
-		InputManager.instance.GetPlayerInput().Camera.ZoomCamera.performed += ZoomCamera;
-		InputManager.instance.GetPlayerInput().Camera.Enable();
+
 	}
 
 	private void OnDisable()
+	{
+		UnassignCameraMovementInput();
+	}
+	public void AssignCameraMovementInput(CameraControlActions playerInput)
+	{
+		playerInput.Camera.RotateCamera.performed += RotateCamera;
+		playerInput.Camera.ZoomCamera.performed += ZoomCamera;
+		playerInput.Camera.Enable();
+		movement = playerInput.Camera.Movement;
+	}
+	private void UnassignCameraMovementInput()
 	{
 		InputManager.instance.GetPlayerInput().Camera.RotateCamera.performed -= RotateCamera;
 		InputManager.instance.GetPlayerInput().Camera.ZoomCamera.performed -= ZoomCamera;
 		InputManager.instance.GetPlayerInput().Camera.Disable();
 	}
-
 	private void Update()
 	{
 		//inputs
