@@ -1505,6 +1505,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0aa7d3bda262c554891229be8be2fdb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buildMode: 0
 --- !u!1 &1215266988
 GameObject:
   m_ObjectHideFlags: 0
@@ -2128,6 +2129,7 @@ MonoBehaviour:
   iron: 100
   energy: 100
   money: 100
+  resourceList: {fileID: 11400000, guid: 63a4d19a5934d824194277a17f6d94ed, type: 2}
 --- !u!114 &1635767376
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -9,9 +9,17 @@ public class ResourceManager : MonoBehaviour
 	[SerializeField] private int iron;
 	[SerializeField] private int energy;
 	[SerializeField] private int money;
+	public ResourceTypeListSO resourceList;
 	private void Awake()
 	{
 		instance = this;
+	}
+	private void Start()
+	{
+		water = GetResourceType(ResourceType.Water).startingAmount;
+		iron = GetResourceType(ResourceType.Iron).startingAmount;
+		energy = GetResourceType(ResourceType.Energy).startingAmount;
+		money = GetResourceType(ResourceType.Money).startingAmount;
 	}
 	public int GetWater()
 	{
@@ -45,5 +53,16 @@ public class ResourceManager : MonoBehaviour
 		if (water < waterCost)
 			return false;
 		return true;
+	}
+	public ResourceSO GetResourceType(ResourceType resourceEnumType)
+	{
+		foreach (ResourceSO resourceType in resourceList.list)
+		{
+			if (resourceType.resourceType == resourceEnumType)
+			{
+				return resourceType;
+			}
+		}
+		return resourceList.list[0];
 	}
 }

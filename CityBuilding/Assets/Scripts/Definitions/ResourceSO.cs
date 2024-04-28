@@ -14,4 +14,5 @@ public class ResourceSO : ScriptableObject
 {
 	public ResourceType resourceType;
 	public string nameString;
+	public int startingAmount;
 }
