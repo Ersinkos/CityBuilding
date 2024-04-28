@@ -23,4 +23,4 @@ MonoBehaviour:
   energyCost: 10
   moneyCost: 10
   type: 0
-  spriteImage: {fileID: 0}
+  spriteImage: {fileID: 21300000, guid: b540592a924dd3c4ca0c034c27c64158, type: 3}

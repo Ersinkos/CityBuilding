@@ -5,10 +5,10 @@ using UnityEngine;
 public class ResourceManager : MonoBehaviour
 {
 	public static ResourceManager instance;
-	private int water;
-	private int iron;
-	private int energy;
-	private int money;
+	[SerializeField] private int water;
+	[SerializeField] private int iron;
+	[SerializeField] private int energy;
+	[SerializeField] private int money;
 	private void Awake()
 	{
 		instance = this;
