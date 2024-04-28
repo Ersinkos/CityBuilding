@@ -21,6 +21,7 @@ public class ResourceManager : MonoBehaviour
 		iron = GetResourceType(ResourceType.Iron).startingAmount;
 		energy = GetResourceType(ResourceType.Energy).startingAmount;
 		money = GetResourceType(ResourceType.Money).startingAmount;
+		storageCapacity = GetResourceType(ResourceType.StorageCapacity).startingAmount;
 	}
 	public int GetWater()
 	{
@@ -37,6 +38,10 @@ public class ResourceManager : MonoBehaviour
 	public int GetMoney()
 	{
 		return money;
+	}
+	public int GetStorageCapacity()
+	{
+		return storageCapacity;
 	}
 	public bool HasEnoughResourceToBuild(StructureSO structureType)
 	{
@@ -77,6 +82,8 @@ public class ResourceManager : MonoBehaviour
 		iron -= structureType.ironCost;
 		energy -= structureType.energyCost;
 		money -= structureType.moneyCost;
+
+		UpdateResourceUI();
 	}
 	private void UpdateResourceUI()
 	{
@@ -84,39 +91,7 @@ public class ResourceManager : MonoBehaviour
 		GameCanvas.instance.ChangeIronMaterialText(iron.ToString());
 		GameCanvas.instance.ChangeEnergyMaterialText(energy.ToString());
 		GameCanvas.instance.ChangeMoneyMaterialText(money.ToString());
-
-		//if (lifeSupportMaterial > storageCapacity)
-		//{
-		//	lifeSupportMaterialText.color = exceedCapacity;
-		//}
-		//else
-		//{
-		//	lifeSupportMaterialText.color = normalColor;
-		//}
-		//if (buildingMaterial > storageCapacity)
-		//{
-		//	buildingMaterialText.color = exceedCapacity;
-		//}
-		//else
-		//{
-		//	buildingMaterialText.color = normalColor;
-		//}
-		//if (energyMaterial > storageCapacity)
-		//{
-		//	energyMaterialText.color = exceedCapacity;
-		//}
-		//else
-		//{
-		//	energyMaterialText.color = normalColor;
-		//}
-		//if (conductiveMaterial > storageCapacity)
-		//{
-		//	conductiveMaterialText.color = exceedCapacity;
-		//}
-		//else
-		//{
-		//	conductiveMaterialText.color = normalColor;
-		//}
+		GameCanvas.instance.ChangeStorageCapacityText(storageCapacity.ToString());
 
 		if (FlexibleUI.instance != null)
 			FlexibleUI.instance.UpdateResourceRequirementIndicators();

@@ -11,6 +11,9 @@ public class GameCanvas : MonoBehaviour
 	[SerializeField] private TextMeshProUGUI ironMaterialText;
 	[SerializeField] private TextMeshProUGUI energyMaterialText;
 	[SerializeField] private TextMeshProUGUI moneyMaterialText;
+	[SerializeField] private TextMeshProUGUI storageCapacityText;
+	public Color normalMaterialTextColor;
+	public Color exceedCapacityColor;
 	private void Awake()
 	{
 		instance = this;
@@ -29,12 +32,16 @@ public class GameCanvas : MonoBehaviour
 			return;
 		}
 	}
-	private void OnEnable()
+	private void OnDisable()
+	{
+		UnassignGameCanvasInput();
+	}
+	public void AssignGameCanvasInput(CameraControlActions playerInput)
 	{
 		InputManager.instance.GetPlayerInput().UI.Cancel.performed += OnCancelKey;
 		InputManager.instance.GetPlayerInput().UI.Enable();
 	}
-	private void OnDisable()
+	private void UnassignGameCanvasInput()
 	{
 		InputManager.instance.GetPlayerInput().UI.Cancel.performed -= OnCancelKey;
 		InputManager.instance.GetPlayerInput().UI.Disable();
@@ -42,17 +49,64 @@ public class GameCanvas : MonoBehaviour
 	public void ChangeWaterMaterialText(string text)
 	{
 		waterMaterialText.text = text;
+		ChangeMaterialTextColor(ResourceType.Water);
 	}
 	public void ChangeIronMaterialText(string text)
 	{
 		ironMaterialText.text = text;
+		ChangeMaterialTextColor(ResourceType.Iron);
 	}
 	public void ChangeEnergyMaterialText(string text)
 	{
 		energyMaterialText.text = text;
+		ChangeMaterialTextColor(ResourceType.Energy);
 	}
 	public void ChangeMoneyMaterialText(string text)
 	{
 		moneyMaterialText.text = text;
+		ChangeMaterialTextColor(ResourceType.Money);
 	}
+	public void ChangeStorageCapacityText(string text)
+	{
+		storageCapacityText.text = text;
+	}
+	public void ChangeMaterialTextColor(ResourceType resourceType)
+	{
+		switch (resourceType)
+		{
+			case ResourceType.Water:
+
+				if (ResourceManager.instance.GetWater() > ResourceManager.instance.GetStorageCapacity())
+					waterMaterialText.color = exceedCapacityColor;
+				else
+					waterMaterialText.color = normalMaterialTextColor;
+
+				break;
+			case ResourceType.Iron:
+
+				if (ResourceManager.instance.GetIron() > ResourceManager.instance.GetStorageCapacity())
+					ironMaterialText.color = exceedCapacityColor;
+				else
+					ironMaterialText.color = normalMaterialTextColor;
+
+				break;
+			case ResourceType.Energy:
+
+				if (ResourceManager.instance.GetEnergy() > ResourceManager.instance.GetStorageCapacity())
+					energyMaterialText.color = exceedCapacityColor;
+				else
+					energyMaterialText.color = normalMaterialTextColor;
+
+				break;
+			case ResourceType.Money:
+
+				if (ResourceManager.instance.GetMoney() > ResourceManager.instance.GetStorageCapacity())
+					moneyMaterialText.color = exceedCapacityColor;
+				else
+					moneyMaterialText.color = normalMaterialTextColor;
+
+				break;
+		}
+	}
+
 }
