@@ -31,7 +31,19 @@ public class ResourceManager : MonoBehaviour
 	}
 	public bool HasEnoughResourceToBuild(StructureSO structureType)
 	{
-		//TO-DO : add functional code
+		int ironCost = structureType.ironCost;
+		int waterCost = structureType.waterCost;
+		int energyCost = structureType.energyCost;
+		int moneyCost = structureType.moneyCost;
+
+		if (iron < ironCost)
+			return false;
+		if (money < moneyCost)
+			return false;
+		if (energy < energyCost)
+			return false;
+		if (water < waterCost)
+			return false;
 		return true;
 	}
 }
