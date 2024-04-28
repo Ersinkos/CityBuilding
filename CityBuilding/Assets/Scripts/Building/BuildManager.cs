@@ -15,6 +15,7 @@ public class BuildManager : MonoBehaviour
 	{
 		//TO-DO : Add building functionality
 		Debug.Log("Build to : " + tile.name);
+		Instantiate(activeStructure.prefab, tile.transform.position, Quaternion.identity);
 	}
 	public void SetActiveStructureType(StructureSO structure)
 	{
@@ -30,5 +31,13 @@ public class BuildManager : MonoBehaviour
 	public void SetBuildMode(bool enabled)
 	{
 		buildMode = enabled;
+	}
+	public bool HasActiveStructure()
+	{
+		return activeStructure != null;
+	}
+	public bool CanBuild()
+	{
+		return HasActiveStructure();
 	}
 }

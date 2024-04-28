@@ -10,11 +10,15 @@ public class Tile : MonoBehaviour
 	}
 	private void OnMouseDown()
 	{
-		BuildManager.instance.BuildStructure(gameObject);
+		if (BuildManager.instance.CanBuild())
+		{
+			//Debug.Log("can build to this slot");
+			BuildManager.instance.BuildStructure(gameObject);
+			FlexibleUI.instance.UpdateResourceRequirementIndicators();
+		}
 	}
 	private void OnMouseEnter()
 	{
-		Debug.Log(gameObject.name);
 		BuildingGhost.instance.SetGhostNewPosition(transform.position);
 		if (BuildingGhost.instance.HasBuildingGhost())
 			BuildingGhost.instance.BuildingGhostEnabled(true);
