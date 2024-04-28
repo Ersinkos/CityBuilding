@@ -5,6 +5,7 @@ using UnityEngine;
 public class BuildManager : MonoBehaviour
 {
 	public static BuildManager instance { get; private set; }
+	private StructureSO activeStructure;
 	private void Awake()
 	{
 		instance = this;
@@ -13,5 +14,9 @@ public class BuildManager : MonoBehaviour
 	{
 		//TO-DO : Add building functionality
 		Debug.Log("Build to : " + tile.name);
+	}
+	public void SetActiveStructureType(StructureSO structure)
+	{
+		activeStructure = structure;
 	}
 }

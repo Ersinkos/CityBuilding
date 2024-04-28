@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8639803139417427976}
   - component: {fileID: 2325449555862289308}
   - component: {fileID: 8923415870914610541}
+  - component: {fileID: 8652670030967714983}
   m_Layer: 0
   m_Name: StructureButton
   m_TagString: Untagged
@@ -126,6 +127,21 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &8652670030967714983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 141997868241180928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f02b387a58d3054eb75865efa4cef69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  structureType: {fileID: 0}
+  HoverPanel: {fileID: 901876169186261518}
+  justResearched: {fileID: 0}
 --- !u!1 &648504893054896941
 GameObject:
   m_ObjectHideFlags: 0

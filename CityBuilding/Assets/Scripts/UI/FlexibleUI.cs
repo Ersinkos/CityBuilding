@@ -21,8 +21,6 @@ public class FlexibleUI : MonoBehaviour
 	public Color disabledColor;
 	public ScrollRect scrollable;
 
-	private Vector2 savedPosition;
-
 	public string filterString = "";
 
 	private void Awake()
@@ -63,56 +61,52 @@ public class FlexibleUI : MonoBehaviour
 				button.GetComponentsInChildren<Image>()[3].sprite = structureType.spriteImage;
 
 				//button.GetComponent<Button>().interactable = ResourceManager.instance.HasEnoughResourceToBuild(structureType);
-				//button.GetComponent<StructureButton>().structureType = structureType;
+				button.GetComponent<StructureButton>().structureType = structureType;
 
-				//button.GetComponent<Button>().onClick.AddListener(delegate { BuildManager.instance.SetActiveStructureGhost(ghostsDictionary[structureType.ghostName]); });
-				//button.GetComponent<Button>().onClick.AddListener(delegate { BuildManager.instance.SetActiveStructureType(structureType); });
+				button.GetComponent<Button>().onClick.AddListener(delegate { BuildingGhost.instance.SetActiveStructureGhost(ghostsDictionary[structureType.ghostName]); });
+				button.GetComponent<Button>().onClick.AddListener(delegate { BuildManager.instance.SetActiveStructureType(structureType); });
 
 				if (triggerFirstClick)
 				{
-					//BuildManager.instance.SetActiveStructureGhost(ghostsDictionary[structureType.ghostName]);
-					//BuildManager.instance.SetActiveStructureType(structureType);
-					//EventSystem.current.SetSelectedGameObject(button);
+					BuildingGhost.instance.SetActiveStructureGhost(ghostsDictionary[structureType.ghostName]);
+					BuildManager.instance.SetActiveStructureType(structureType);
+					EventSystem.current.SetSelectedGameObject(button);
 					triggerFirstClick = false;
-					//BuildingGhost.instance.ResetBuildingGhostRotation();
+					BuildingGhost.instance.ResetBuildingGhostRotation();
 				}
-				//if (ResourceManager.instance.HasEnoughResourceToBuild(structureType))
-				//{
-				//	var colors = button.GetComponent<Button>().colors;
-				//	colors.normalColor = normalColor;
-				//	button.GetComponent<Button>().colors = colors;
-				//}
-				//else
-				//{
-				//	var colors = button.GetComponent<Button>().colors;
-				//	colors.normalColor = disabledColor;
-				//	button.GetComponent<Button>().colors = colors;
-				//}
+				if (ResourceManager.instance.HasEnoughResourceToBuild(structureType))
+				{
+					var colors = button.GetComponent<Button>().colors;
+					colors.normalColor = normalColor;
+					button.GetComponent<Button>().colors = colors;
+				}
+				else
+				{
+					var colors = button.GetComponent<Button>().colors;
+					colors.normalColor = disabledColor;
+					button.GetComponent<Button>().colors = colors;
+				}
 			}
 
 		}
 	}
 
-	//public void UpdateResourceRequirementIndicators()
-	//{
-	//	var AllStructureButtons = transform.GetComponentsInChildren<StructureButton>();
-	//	if (AllStructureButtons.Length > 0)
-	//	{
-	//		foreach (StructureButton structureButton in AllStructureButtons)
-	//		{
-	//			if (structureButton != null)
-	//				structureButton.UpdateInteractability();
-	//		}
-	//	}
-	//}
+	public void UpdateResourceRequirementIndicators()
+	{
+		var AllStructureButtons = transform.GetComponentsInChildren<StructureButton>();
+		if (AllStructureButtons.Length > 0)
+		{
+			foreach (StructureButton structureButton in AllStructureButtons)
+			{
+				if (structureButton != null)
+					structureButton.UpdateInteractability();
+			}
+		}
+	}
 
 	public void ClosePanel()
 	{
 		filterString = "";
-		if (filterType == 2)
-		{
-			savedPosition = scrollable.normalizedPosition;
-		}
 		filterType = 0;
 		gameObject.SetActive(false);
 		//BuildManager.instance.CancelBuilding();

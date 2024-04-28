@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: FlexibleUISO
   m_EditorClassIdentifier: 
   buttonSprite: {fileID: 0}
+  structureTypeList: {fileID: 11400000, guid: f4cccd6880faa4a44b2ce03e632feae1, type: 2}

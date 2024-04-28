@@ -9,7 +9,6 @@ public class StructureButton : MonoBehaviour, IPointerEnterHandler, IPointerExit
 {
 	public StructureSO structureType;
 	public GameObject HoverPanel;
-	public GameObject justResearched;
 
 	public void OnPointerEnter(PointerEventData eventData)
 	{
@@ -23,16 +22,10 @@ public class StructureButton : MonoBehaviour, IPointerEnterHandler, IPointerExit
 
 	public void OnPointerClick(PointerEventData eventData)
 	{
-
-		// TODO: Also check if tutorial locked
 		bool hasResource = false;
-		if (structureType == null)
+		if (structureType != null)
 		{
-			//hasResource = ResourceManager.instance.HasEnoughResourceToBuild(spaceshipPart);
-		}
-		else
-		{
-			//hasResource = ResourceManager.instance.HasEnoughResourceToBuild(structureType);
+			hasResource = ResourceManager.instance.HasEnoughResourceToBuild(structureType);
 		}
 		if (hasResource)
 		{
@@ -100,22 +93,22 @@ public class StructureButton : MonoBehaviour, IPointerEnterHandler, IPointerExit
 			if (water != 0)
 			{
 				var color = ResourceManager.instance.GetWater() >= water ? "#fff" : "red";
-				hoverString = hoverString + "\n<color=" + color + ">" + water + "</color> LifeSupportMaterial";
+				hoverString = hoverString + "\n<color=" + color + ">" + water + "</color> Water";
 			}
 			if (iron != 0)
 			{
 				var color = ResourceManager.instance.GetIron() >= iron ? "#fff" : "red";
-				hoverString = hoverString + "\n<color=" + color + ">" + iron + "</color> BuildingMaterial";
+				hoverString = hoverString + "\n<color=" + color + ">" + iron + "</color> Iron";
 			}
 			if (energy != 0)
 			{
 				var color = ResourceManager.instance.GetEnergy() >= energy ? "#fff" : "red";
-				hoverString = hoverString + "\n<color=" + color + ">" + energy + "</color> EnergyMaterial";
+				hoverString = hoverString + "\n<color=" + color + ">" + energy + "</color> Energy";
 			}
 			if (money != 0)
 			{
 				var color = ResourceManager.instance.GetMoney() >= money ? "#fff" : "red";
-				hoverString = hoverString + "\n<color=" + color + ">" + money + "</color> ConductiveMaterial";
+				hoverString = hoverString + "\n<color=" + color + ">" + money + "</color> Money";
 			}
 		}
 		if (hoverString == originalhoverString)

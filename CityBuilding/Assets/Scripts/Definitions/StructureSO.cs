@@ -9,6 +9,7 @@ public class StructureSO : ScriptableObject
 	public string nameString;
 	public string buttonName;
 	public string description;
+	public string ghostName;
 	public GameObject prefab;
 	public int waterCost;
 	public int ironCost;

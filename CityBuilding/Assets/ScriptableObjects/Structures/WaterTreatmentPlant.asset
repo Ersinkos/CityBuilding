@@ -12,9 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a17d6deb23a4194a9aa43051738ae45, type: 3}
   m_Name: WaterTreatmentPlant
   m_EditorClassIdentifier: 
+  id: 0
   nameString: WaterTreatmentPlant
-  prefab: {fileID: 1249549583879913045, guid: b252a8cf039a238438d3204e5e63307b, type: 3}
+  buttonName: Water Treatment Plant
+  description: Purifies Water
+  ghostName: WaterTreatmentPlantGhost
+  prefab: {fileID: 1249549583879913045, guid: 9e5a2f5b05f77164b8c4001ecf5f117c, type: 3}
   waterCost: 10
   ironCost: 10
   energyCost: 10
   moneyCost: 10
+  type: 0
+  spriteImage: {fileID: 0}
