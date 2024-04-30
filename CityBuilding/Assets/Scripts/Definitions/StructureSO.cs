@@ -11,6 +11,8 @@ public class StructureSO : ScriptableObject
 	public string description;
 	public string ghostName;
 	public GameObject prefab;
+	public bool canPlaceLake;
+	public bool canPlaceForest;
 	public int waterCost;
 	public int ironCost;
 	public int energyCost;

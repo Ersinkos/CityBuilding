@@ -18,6 +18,8 @@ MonoBehaviour:
   description: Purifies Water
   ghostName: WaterTreatmentPlantGhost
   prefab: {fileID: 1249549583879913045, guid: 9e5a2f5b05f77164b8c4001ecf5f117c, type: 3}
+  canPlaceLake: 1
+  canPlaceForest: 0
   waterCost: 10
   ironCost: 10
   energyCost: 10

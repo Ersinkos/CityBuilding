@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class BuildManager : MonoBehaviour
@@ -37,8 +38,20 @@ public class BuildManager : MonoBehaviour
 	{
 		return activeStructure != null;
 	}
-	public bool CanBuild()
+	public bool CanBuild(Tile tile)
 	{
-		return HasActiveStructure();
+		if (!HasActiveStructure())
+		{
+			return false;
+		}
+		if (tile.tileType.tileType == TileType.Lake && !activeStructure.canPlaceLake)
+		{
+			return false;
+		}
+		if (tile.tileType.tileType == TileType.Forest && !activeStructure.canPlaceForest)
+		{
+			return false;
+		}
+		return true;
 	}
 }

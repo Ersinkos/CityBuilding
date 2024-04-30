@@ -23,7 +23,7 @@ public class Tile : MonoBehaviour
 	}
 	private void OnMouseDown()
 	{
-		if (BuildManager.instance.CanBuild())
+		if (BuildManager.instance.CanBuild(this))
 		{
 			//Debug.Log("can build to this slot");
 			BuildManager.instance.BuildStructure(gameObject);
