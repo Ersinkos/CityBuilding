@@ -2326,6 +2326,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TilePrefab: {fileID: 4328986278170575972, guid: cb057f6bbfc1fe84f8b2d32a361c6306, type: 3}
+  tileTypeList: {fileID: 11400000, guid: 9b7cfd124a8d7264d972e941fff61915, type: 2}
   mapSize: 10
 --- !u!114 &1635767375
 MonoBehaviour:
