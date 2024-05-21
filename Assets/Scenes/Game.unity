@@ -1713,6 +1713,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buildMode: 0
+  hqPrefab: {fileID: 1249549583879913045, guid: 473fd6109a5bc2d43875df8f0f23e2a7, type: 3}
 --- !u!1 &1215266988
 GameObject:
   m_ObjectHideFlags: 0
@@ -2007,6 +2008,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c6e5e43fee58824faa8c3b8e91d2b00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  blueMaterial: {fileID: 2100000, guid: 7595b7aa55027e540a2db89a1007bfe9, type: 2}
+  redMaterial: {fileID: 2100000, guid: 0c48a244666b2704ca0a6a971c465a44, type: 2}
 --- !u!1 &1553831274
 GameObject:
   m_ObjectHideFlags: 0
