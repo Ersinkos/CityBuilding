@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a17d6deb23a4194a9aa43051738ae45, type: 3}
   m_Name: WaterTreatmentPlant
   m_EditorClassIdentifier: 
-  id: 0
+  id: 1
   nameString: WaterTreatmentPlant
   buttonName: Water Treatment Plant
   description: Purifies Water

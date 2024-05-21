@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a17d6deb23a4194a9aa43051738ae45, type: 3}
+  m_Name: HQ
+  m_EditorClassIdentifier: 
+  id: 0
+  nameString: HQ
+  buttonName: 
+  description: Headquarter
+  ghostName: 
+  prefab: {fileID: 1249549583879913045, guid: 473fd6109a5bc2d43875df8f0f23e2a7, type: 3}
+  canPlaceLake: 1
+  canPlaceForest: 1
+  waterCost: 0
+  ironCost: 0
+  energyCost: 0
+  moneyCost: 0
+  type: 0
+  spriteImage: {fileID: 0}
+  generatedMaterials:
+  - generatedType: 0
+    generatedAmount: 5
+  - generatedType: 1
+    generatedAmount: 5
+  - generatedType: 2
+    generatedAmount: 5
+  materialGenerationTime: 10
