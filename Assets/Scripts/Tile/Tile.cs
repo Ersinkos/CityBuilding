@@ -41,6 +41,10 @@ public class Tile : MonoBehaviour
             BuildingGhost.instance.BuildingGhostEnabled(true);
             BuildingGhost.instance.UpdateGhostColor(canBuild);
         }
+        if (occupied)
+        {
+            BuildingGhost.instance.BuildingGhostEnabled(false);
+        }
 
 
     }
