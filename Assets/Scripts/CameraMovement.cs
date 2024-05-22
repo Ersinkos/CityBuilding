@@ -1,4 +1,6 @@
 using System.Collections;
+using System.Security;
+using UnityEditor.Timeline;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -27,10 +29,14 @@ public class CameraMovement : MonoBehaviour
 
 	[SerializeField] private float maxRotationSpeed = 1f;
 
+	[SerializeField] private float verticalRotationMin = -15f;
+	[SerializeField] private float verticalRotationMax = 30f;
 
 	[SerializeField]
 	[Range(0f, 0.1f)]
 	private float edgeTolerance = 0f;
+
+
 
 	//value set in various functions 
 	//used to update the position of the camera base object.
@@ -49,7 +55,6 @@ public class CameraMovement : MonoBehaviour
 	{
 		cameraTransform = this.GetComponentInChildren<Camera>().transform;
 	}
-
 	private void OnEnable()
 	{
 		zoomHeight = cameraTransform.localPosition.y;
@@ -110,7 +115,7 @@ public class CameraMovement : MonoBehaviour
 
 	private void DragCamera()
 	{
-		if (!Mouse.current.rightButton.isPressed)
+		if (!Mouse.current.middleButton.isPressed)
 			return;
 
 		//create plane to raycast to
@@ -194,13 +199,42 @@ public class CameraMovement : MonoBehaviour
 
 	private void RotateCamera(InputAction.CallbackContext obj)
 	{
-		if (!Mouse.current.middleButton.isPressed)
+		if (!Mouse.current.rightButton.isPressed)
 			return;
 
-		float inputValue = obj.ReadValue<Vector2>().x;
-		transform.rotation = Quaternion.Euler(0f, inputValue * maxRotationSpeed + transform.rotation.eulerAngles.y, 0f);
-	}
+		float horizontalValue = obj.ReadValue<Vector2>().x;
+		float verticalValue = -obj.ReadValue<Vector2>().y;
 
+		if (horizontalValue != 0)
+		{
+			RotateHorizontally(horizontalValue);
+		}
+		if (verticalValue != 0)
+		{
+			RotateVertically(verticalValue);
+		}
+
+	}
+	private void RotateHorizontally(float horizontalValue)
+	{
+		transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, horizontalValue * maxRotationSpeed * Time.deltaTime + transform.rotation.eulerAngles.y, 0f);
+	}
+	private void RotateVertically(float verticalValue)
+	{
+		float value = GetNegativeRotationX(transform);
+		value += verticalValue * maxRotationSpeed * Time.deltaTime;
+		value = Mathf.Clamp(value, verticalRotationMin, verticalRotationMax);
+		transform.rotation = Quaternion.Euler(value, transform.rotation.eulerAngles.y, 0f);
+	}
+	private float GetNegativeRotationX(Transform transform)
+	{
+		float angle = transform.rotation.eulerAngles.x;
+		if (angle > 180f)
+		{
+			angle -= 360f;
+		}
+		return angle;
+	}
 	//gets the horizontal forward vector of the camera
 	private Vector3 GetCameraForward()
 	{

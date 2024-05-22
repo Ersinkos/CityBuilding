@@ -838,8 +838,10 @@ MonoBehaviour:
   zoomDampening: 7.5
   minHeight: 5
   maxHeight: 50
-  zoomSpeed: 10
-  maxRotationSpeed: 1
+  zoomSpeed: 50
+  maxRotationSpeed: 50
+  verticalRotationMin: -30
+  verticalRotationMax: 30
   edgeTolerance: 0
 --- !u!1 &850846007
 GameObject:
@@ -1371,7 +1373,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 827368145}
-  m_LocalEulerAnglesHint: {x: 45, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 44.8, y: 0, z: 0}
 --- !u!114 &963194229
 MonoBehaviour:
   m_ObjectHideFlags: 0
