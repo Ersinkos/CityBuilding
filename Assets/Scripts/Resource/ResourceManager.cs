@@ -109,6 +109,23 @@ public class ResourceManager : MonoBehaviour
         }
         UpdateResourceUI();
     }
+    public bool HasEnoughStorageCapacity(ResourceType type)
+    {
+        switch (type)
+        {
+            case ResourceType.Water:
+                return storageCapacity > water;
+            case ResourceType.Iron:
+                return storageCapacity > iron;
+            case ResourceType.Energy:
+                return storageCapacity > energy;
+            case ResourceType.Money:
+                return storageCapacity > money;
+            default:
+                return true;
+
+        }
+    }
     private void UpdateResourceUI()
     {
         GameCanvas.instance.ChangeWaterMaterialText(water.ToString());

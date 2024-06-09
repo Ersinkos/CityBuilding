@@ -15,7 +15,7 @@ MonoBehaviour:
   id: 3
   nameString: OilGenerator
   buttonName: Oil Generator
-  description: Gathers oil
+  description: Gathers oil and Generater Energy
   ghostName: OilGeneratorGhost
   prefab: {fileID: 1249549583879913045, guid: a12c1134bed96334cbd074de320eff7d, type: 3}
   placeableTile: 2
@@ -24,6 +24,8 @@ MonoBehaviour:
   energyCost: 20
   moneyCost: 20
   type: 0
-  spriteImage: {fileID: 21300000, guid: b540592a924dd3c4ca0c034c27c64158, type: 3}
-  generatedMaterials: []
-  materialGenerationTime: 0
+  spriteImage: {fileID: 21300000, guid: cf45cfe189f73cc4586411fd78fd8ac3, type: 3}
+  generatedMaterials:
+  - generatedType: 2
+    generatedAmount: 5
+  materialGenerationTime: 2

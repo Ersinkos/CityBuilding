@@ -15,7 +15,7 @@ MonoBehaviour:
   id: 2
   nameString: Lumber
   buttonName: Lumber
-  description: Cut down trees
+  description: Generate Iron
   ghostName: LumberGhost
   prefab: {fileID: 1249549583879913045, guid: 3b9235aa082b55543aed2a2c30efdf64, type: 3}
   placeableTile: 1
@@ -24,6 +24,8 @@ MonoBehaviour:
   energyCost: 15
   moneyCost: 15
   type: 0
-  spriteImage: {fileID: 21300000, guid: b540592a924dd3c4ca0c034c27c64158, type: 3}
-  generatedMaterials: []
-  materialGenerationTime: 0
+  spriteImage: {fileID: 21300000, guid: d2c039dff4850fb4690c30576d2d2630, type: 3}
+  generatedMaterials:
+  - generatedType: 1
+    generatedAmount: 5
+  materialGenerationTime: 2

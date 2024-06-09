@@ -18,7 +18,8 @@ public class Structure : MonoBehaviour
         {
             foreach (GeneratedMaterial material in structureData.generatedMaterials)
             {
-                ResourceManager.instance.AddResource(material.generatedType, material.generatedAmount);
+                if (ResourceManager.instance.HasEnoughStorageCapacity(material.generatedType))
+                    ResourceManager.instance.AddResource(material.generatedType, material.generatedAmount);
             }
             yield return new WaitForSeconds(structureData.materialGenerationTime);
         }

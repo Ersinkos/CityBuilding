@@ -15,7 +15,7 @@ MonoBehaviour:
   id: 4
   nameString: GoldGenerator
   buttonName: Gold Generator
-  description: Gathers gold
+  description: Generate Money
   ghostName: GoldGeneratorGhost
   prefab: {fileID: 1249549583879913045, guid: bcf0da8c767ba70468be5b2655089967, type: 3}
   placeableTile: 3
@@ -24,6 +24,8 @@ MonoBehaviour:
   energyCost: 30
   moneyCost: 30
   type: 0
-  spriteImage: {fileID: 21300000, guid: b540592a924dd3c4ca0c034c27c64158, type: 3}
-  generatedMaterials: []
-  materialGenerationTime: 0
+  spriteImage: {fileID: 21300000, guid: 44bfff507a1d2f943862fb92e9aa5ec9, type: 3}
+  generatedMaterials:
+  - generatedType: 3
+    generatedAmount: 5
+  materialGenerationTime: 2
