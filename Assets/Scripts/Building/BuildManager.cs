@@ -52,11 +52,7 @@ public class BuildManager : MonoBehaviour
         {
             return false;
         }
-        if (tile.tileType.tileType == TileType.Lake && !activeStructure.canPlaceLake)
-        {
-            return false;
-        }
-        if (tile.tileType.tileType == TileType.Forest && !activeStructure.canPlaceForest)
+        if (tile.tileType.tileType != activeStructure.placeableTile)
         {
             return false;
         }

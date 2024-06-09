@@ -17,7 +17,13 @@ public class Tile : MonoBehaviour
                 GetComponentInChildren<SpriteRenderer>().color = Color.blue;
                 break;
             case TileType.Forest:
+                GetComponentInChildren<SpriteRenderer>().color = Color.red;
+                break;
+            case TileType.Oil:
                 GetComponentInChildren<SpriteRenderer>().color = Color.green;
+                break;
+            case TileType.Gold:
+                GetComponentInChildren<SpriteRenderer>().color = Color.yellow;
                 break;
             default:
                 break;
