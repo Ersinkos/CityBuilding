@@ -41,6 +41,10 @@ public class BuildingGhost : MonoBehaviour
     }
     public void SetActiveStructureGhost(GameObject activeGhost)
     {
+        if (buildingGhost != null)
+        {
+            BuildingGhostEnabled(false);
+        }
         buildingGhost = activeGhost;
         rotation = Vector3.zero;
         ResetBuildingGhostRotation();
