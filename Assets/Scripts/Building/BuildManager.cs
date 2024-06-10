@@ -8,24 +8,39 @@ public class BuildManager : MonoBehaviour
     public static BuildManager instance { get; private set; }
     private StructureSO activeStructure;
     public bool buildMode;
+    public List<Structure> structuresOnMap;
+    [SerializeField] private Material onMouseMaterial;
     [SerializeField] private GameObject hqPrefab;
     private void Awake()
     {
         instance = this;
     }
+    private void Update()
+    {
+
+    }
     public void BuildHqOnGameStart()
     {
         Tile centerTile = GameObject.Find("Tile (0,0)").GetComponent<Tile>();
-        Instantiate(hqPrefab, centerTile.transform.position, Quaternion.identity);
+        GameObject hq = Instantiate(hqPrefab, centerTile.transform.position, Quaternion.identity);
         centerTile.occupied = true;
+        structuresOnMap.Add(hq.GetComponent<Structure>());
     }
     public void BuildStructure(GameObject tile)
     {
         //TO-DO : Add building functionality
         Debug.Log("Build to : " + tile.name);
-        Instantiate(activeStructure.prefab, tile.transform.position, Quaternion.identity);
+        GameObject structure = Instantiate(activeStructure.prefab, tile.transform.position, Quaternion.identity);
         ResourceManager.instance.OnStructurePlacing(activeStructure);
         tile.GetComponent<Tile>().occupied = true;
+        structure.GetComponent<Structure>().tile = tile.GetComponent<Tile>();
+        structuresOnMap.Add(structure.GetComponent<Structure>());
+    }
+    public void DemolishStructure(Structure structure)
+    {
+        structure.tile.occupied = false;
+        structuresOnMap.Remove(structure.GetComponent<Structure>());
+        Destroy(structure.gameObject);
     }
     public void SetActiveStructureType(StructureSO structure)
     {
@@ -61,5 +76,13 @@ public class BuildManager : MonoBehaviour
             return false;
         }
         return true;
+    }
+    public Material GetOnMouseMaterial()
+    {
+        return onMouseMaterial;
+    }
+    public bool isHq(StructureSO structure)
+    {
+        return structure.id == 0;
     }
 }
