@@ -7,7 +7,8 @@ public enum TileType
 	Lake,
 	Forest,
 	Oil,
-	Gold
+	Gold,
+	Normal
 }
 [CreateAssetMenu(menuName = "ScriptableObjects/TileType")]
 public class TileSO : ScriptableObject

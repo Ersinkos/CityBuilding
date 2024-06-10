@@ -10,6 +10,7 @@ public class ResourceManager : MonoBehaviour
     [SerializeField] private int energy;
     [SerializeField] private int money;
     [SerializeField] private int storageCapacity;
+    [SerializeField] private int population;
     public ResourceTypeListSO resourceList;
     private void Awake()
     {
@@ -22,6 +23,7 @@ public class ResourceManager : MonoBehaviour
         energy = GetResourceType(ResourceType.Energy).startingAmount;
         money = GetResourceType(ResourceType.Money).startingAmount;
         storageCapacity = GetResourceType(ResourceType.StorageCapacity).startingAmount;
+        population = GetResourceType(ResourceType.Population).startingAmount;
 
         UpdateResourceUI();
     }
@@ -44,6 +46,10 @@ public class ResourceManager : MonoBehaviour
     public int GetStorageCapacity()
     {
         return storageCapacity;
+    }
+    public int GetPopulation()
+    {
+        return population;
     }
     public bool HasEnoughResourceToBuild(StructureSO structureType)
     {
@@ -78,7 +84,7 @@ public class ResourceManager : MonoBehaviour
     {
         SpendMaterial(structureType);
     }
-    private void SpendMaterial(StructureSO structureType)
+    public void SpendMaterial(StructureSO structureType)
     {
         water -= structureType.waterCost;
         iron -= structureType.ironCost;
@@ -87,6 +93,7 @@ public class ResourceManager : MonoBehaviour
 
         UpdateResourceUI();
     }
+
     public void AddResource(ResourceType type, int amount)
     {
         switch (type)
@@ -105,6 +112,9 @@ public class ResourceManager : MonoBehaviour
                 break;
             case ResourceType.StorageCapacity:
                 storageCapacity += amount;
+                break;
+            case ResourceType.Population:
+                population += amount;
                 break;
         }
         UpdateResourceUI();
@@ -133,6 +143,7 @@ public class ResourceManager : MonoBehaviour
         GameCanvas.instance.ChangeEnergyMaterialText(energy.ToString());
         GameCanvas.instance.ChangeMoneyMaterialText(money.ToString());
         GameCanvas.instance.ChangeStorageCapacityText(storageCapacity.ToString());
+        GameCanvas.instance.ChangePopulationText(population.ToString());
 
         if (FlexibleUI.instance != null)
             FlexibleUI.instance.UpdateResourceRequirementIndicators();

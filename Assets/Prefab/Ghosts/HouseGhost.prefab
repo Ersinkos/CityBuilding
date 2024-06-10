@@ -12,14 +12,13 @@ GameObject:
   - component: {fileID: 3293047771503356746}
   - component: {fileID: 745265241294217088}
   - component: {fileID: 3418967578031546520}
-  - component: {fileID: -6220445697206392928}
-  m_Layer: 0
-  m_Name: Lumber
+  m_Layer: 2
+  m_Name: HouseGhost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1881548161446995183
 Transform:
   m_ObjectHideFlags: 0
@@ -42,7 +41,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1249549583879913045}
-  m_Mesh: {fileID: -7893040665608063165, guid: 9d1277534012f544483d9c6d9910bce8, type: 3}
+  m_Mesh: {fileID: 8630583313584002342, guid: 2bf2e0507b3902d43978787df3b5783f, type: 3}
 --- !u!23 &745265241294217088
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -63,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 1cd256ba8acac3a4bb49758d889d920e, type: 2}
+  - {fileID: 2100000, guid: 7595b7aa55027e540a2db89a1007bfe9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -106,16 +105,3 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 17.643173, y: 10.656995, z: 18.070984}
   m_Center: {x: 0, y: 5.3284974, z: 0}
---- !u!114 &-6220445697206392928
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1249549583879913045}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aefdd474f7c5645418651d9d6669e8fa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  structureData: {fileID: 11400000, guid: eeef492ffb6b0f542bf4c407420a80f9, type: 2}

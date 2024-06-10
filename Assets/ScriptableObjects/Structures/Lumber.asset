@@ -24,7 +24,7 @@ MonoBehaviour:
   energyCost: 15
   moneyCost: 15
   type: 0
-  spriteImage: {fileID: 21300000, guid: d2c039dff4850fb4690c30576d2d2630, type: 3}
+  spriteImage: {fileID: 21300000, guid: 15364527eb829ea44a94bc996361cd8a, type: 3}
   generatedMaterials:
   - generatedType: 1
     generatedAmount: 5

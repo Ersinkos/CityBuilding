@@ -8,6 +8,7 @@ public enum ResourceType
 	Iron,
 	Energy,
 	Money,
+	Population,
 	StorageCapacity
 }
 [CreateAssetMenu(menuName = "ScriptableObjects/Resource")]
