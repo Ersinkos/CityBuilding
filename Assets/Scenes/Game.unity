@@ -3137,6 +3137,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: OilGeneratorGhost
       objectReference: {fileID: 0}
+    - target: {fileID: 1249549583879913045, guid: 152459c47e911764f8b8f559c018d03c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1881548161446995183, guid: 152459c47e911764f8b8f559c018d03c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
