@@ -9,26 +9,17 @@ public class CameraMovement : MonoBehaviour
 	private InputAction movement;
 	private Transform cameraTransform;
 
-
 	[SerializeField] private float maxSpeed = 5f;
 	private float speed;
 
 	[SerializeField] private float acceleration = 10f;
-
 	[SerializeField] private float damping = 15f;
-
 	[SerializeField] private float stepSize = 2f;
-
 	[SerializeField] private float zoomDampening = 7.5f;
-
 	[SerializeField] private float minHeight = 5f;
-
 	[SerializeField] private float maxHeight = 50f;
-
 	[SerializeField] private float zoomSpeed = 2f;
-
 	[SerializeField] private float maxRotationSpeed = 1f;
-
 	[SerializeField] private float verticalRotationMin = -15f;
 	[SerializeField] private float verticalRotationMax = 30f;
 
@@ -44,7 +35,7 @@ public class CameraMovement : MonoBehaviour
 
 	private float zoomHeight;
 
-	//used to track and maintain velocity w/o a rigidbody
+	//used to track and maintain velocity
 	private Vector3 horizontalVelocity;
 	private Vector3 lastPosition;
 
@@ -156,7 +147,6 @@ public class CameraMovement : MonoBehaviour
 	{
 		if (targetPosition.sqrMagnitude > 0.1f)
 		{
-			//create a ramp up or acceleration
 			speed = Mathf.Lerp(speed, maxSpeed, Time.deltaTime * acceleration);
 			transform.position += targetPosition * speed * Time.deltaTime;
 		}
